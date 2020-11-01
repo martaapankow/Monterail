@@ -1,0 +1,62 @@
+Test report;;;;;;;;
+Summary:;;;;;;;;
+Tested application:;Born http://born-qa-affluent-albatross.herokuapp.com;;;.;;;;
+Tests conducted in days: ;1.11.2020;;;;;;;
+Environment: ;Browser FireFox 82.0.2 (64 bity),Microsoft Windows 10 Home version 10.0.19041;;;;;;;
+;;;;;;;;
+Status of the tested functions:;;;;;;;;
+Login page: ;2 bugs,  bugs priority: 2 medium;;;;;;;
+Main page:;3 bugs, bugs priority: 3 high;;;;;;;
+Edit Profile: ;1 bug, bug priority: 1 medium;;;;;;;
+Gift Proposal page:;4 bugs, bugs priority: 3 medium, 1 low;;;;;;;
+;;;;;;;;
+ID;Title;Priority;Component/Subpage;Precondition;Steps to reproduce;Actual results;Expected results;Description
+1;Login fields are not centered on the login page.;Medium;Login page;-;"Select link: http://born-qa-affluent-albatross.herokuapp.com
+";The login fields are located on the far left edge.;The login fields are centered on the login page.;-
+2;Inconsistent message when signing up new user.;Medium;Login page;-;"1. Select link: http://born-qa-affluent-albatross.herokuapp.com
+2. Select Sign up.
+3. Enter the email of the user who is prohibited from being saved.
+4. Enter password.
+5.Confirm password.
+6. Select Sign up button.
+";"Inconsistent message appears ""Name can't be blank"".";"A message should appear ""This user cannot access the page"".";-
+3;No redirection to the subpage AUTHENTIC.;High;Main page;The user has an account on the site  http://born-qa-affluent-albatross.herokuapp.com;"1. Select link: http://born-qa-affluent-albatross.herokuapp.com.
+2. Log in to the application using correct username and password.
+3. Select a button from the top menu AUTHENTIC.";The AUTHENTIC button does not redirect to the appropriate subpage. The user is still on main page.;The user should be redirected to the subpage AUTHENTIC;-
+4;No redirection to the subpage SZAMA.;High;Main page;The user has an account on the site  http://born-qa-affluent-albatross.herokuapp.com;"1. Select link: http://born-qa-affluent-albatross.herokuapp.com.
+2. Log in to the application using correct username and password.
+3. Select a button from the top menu SZAMA.";The SZAMA button does not redirect to the appropriate subpage. The user is still on main page.;The user should be redirected to the subpageSZAMA.;-
+5;No redirection to the subpage VACATIONS.;High;Main page;The user has an account on the site  http://born-qa-affluent-albatross.herokuapp.com;"1. Select link: http://born-qa-affluent-albatross.herokuapp.com.
+2. Log in to the application using correct username and password.
+3. Select a button from the top menu VACATIONS.";The VACATIONS button does not redirect to the appropriate subpage. The user is still on main page.;The user should be redirected to the subpage VACATIONS.;-
+6;Able to enter a non-existent date of birth.;Medium;Edit Profile page;The user has an account on the site  http://born-qa-affluent-albatross.herokuapp.com;"1. Select link: http://born-qa-affluent-albatross.herokuapp.com.
+2. Log in to the application using correct username and password.
+3. Select Edit Profile for user.
+4. Enter a non-existent birthday, for example, November 31.
+5.Select Save button.";A a non-existent date is entered and is visible in the list of upcoming birthdays on main page.;The possibility of entering the dates should be limited to 30 days for April, June, September, November and 29 days for February.;-
+7;The delete button is visible for all users on page gift proposals;Medium;Gift Proposal page;"The user has an account on the site  http://born-qa-affluent-albatross.herokuapp.com.There are gift proporsals introduced by other  users.
+";"1. Select link: http://born-qa-affluent-albatross.herokuapp.com.
+2. Log in to the application using correct username and password.
+3. Select Long John from list of Upcoming birthdays.
+4. Select the delete button under another user's gift proposal.";"Inconsistent message appears ""Ups! It seems like your token needs to be refreshed. Please click ok to refresh the page.
+Results of your work have been saved.""";The delete button should be visible and active only to the user who made the entry or the event organizer.;-
+8;"Able to enter a non-existing price.
+";Medium;Gift Proposal page;The user has an account on the site  http://born-qa-affluent-albatross.herokuapp.com . The user has added own proposition for a gift for the selected person.;"1. Select link: http://born-qa-affluent-albatross.herokuapp.com.
+2. Log in to the application using correct username and password.
+3. Select Long John from list of Upcoming birthdays.
+4. Scroll to your own proposition for a gift.
+5. Select edit.
+6. Enter value 20.3333.";"There is possibility to enter a non-existing price.
+";The field of Value should be limited to two decimal places.;-
+9;Able to enter a negative price for the gift;Medium;Gift Proposal page;The user has an account on the site  http://born-qa-affluent-albatross.herokuapp.com . The user has added own proposition for a gift for the selected person.;"1. Select link: http://born-qa-affluent-albatross.herokuapp.com.
+2. Log in to the application using correct username and password.
+3. Select Long John from list of Upcoming birthdays.
+4. Scroll to your own proposition for a gift.
+5. Select edit.
+6. Enter value -20.";There is possibility to enter a negative price for the gift.;It should not be possible to enter a negative price.;-
+10;There is no appropriate constraint on input fields.;Low;Gift Proposal page;The user has an account on the site  http://born-qa-affluent-albatross.herokuapp.com. The list of upcoming birthdays is not empty.;"1. Select link: http://born-qa-affluent-albatross.herokuapp.com.
+2. Log in to the application using correct username and password.
+3. Select Long John from list of Upcoming birthdays.
+4. Select Edit Description buttton.
+5. Enter 20 000 words.
+";It is possible to enter 20 000 words.;The input field should be limited to an appropriate number of characters.;The problem affects all input fields, comments as well.
